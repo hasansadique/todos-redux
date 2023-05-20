@@ -1,16 +1,22 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { decreaseNum, increaseNum } from './action'
+import TodoInput from './components/TodoInput'
+import TodoList from './components/TodoList'
+import Navbar from './components/Navbar'
 
 const App = () => {
-  const myState = useSelector((state) => state.changeTheNumber)
-  const dispatch = useDispatch()
+
   return (
-    <div>
-      <button onClick={() => dispatch(decreaseNum())}>-</button>
-      <input type="text" value={myState} />
-      <button onClick={() => dispatch(increaseNum())}>+</button>
-    </div>
+    <>
+      <Navbar />
+      <div className="container">
+        <div className="row">
+          <div className="col-10 mx-auto col-md-8 mt-4">
+            <TodoInput />
+            <TodoList />
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 
